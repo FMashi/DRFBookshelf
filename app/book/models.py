@@ -4,11 +4,15 @@ from django.contrib.auth.models import AbstractUser
 
 
 # Enums for fields with choices
-class GenderChoices(models.TextChoices):
-    MALE = 'M', _('Male')
-    FEMALE = 'F', _('Female')
-    OTHER = 'O', _('Other')
+# class GenderChoices(models.TextChoices):
+#     MALE = 'M', _('Male')
+#     FEMALE = 'F', _('Female')
+#     OTHER = 'O', _('Other')
 
+GENDER_CHOICES=[
+    ('M',_('Male')),
+    ('F', _('Female'))
+]
 
 # Author model
 class Author(models.Model):
@@ -88,5 +92,29 @@ class EBook(models.Model):
 class Copy(models.Model):
     book = models.ForeignKey(Book, on_delete=models.CASCADE)
     status = models.CharField(max_length=20)
+
+
+class Cities(models.Model):
+    id = models.IntegerField(max_length=11)
+    city = models.CharField(80)
+    city_person = models.CharField(80)
+
+
+class Semesters(models.Model):
+    id = models.IntegerField(max_length=11)
+    semester = models.CharField(max_length=30)
+    semester_person=models.CharField(max_length=30)
+
+class Desposites(models.Model):
+    id = models.IntegerField(max_length=11,primary_key=True)
+    user_id = models.IntegerField(max_length=11)
+    copy_id=models.IntegerField(max_length=11)
+    issue_date=models.DateField()
+    due_date=models.DateField()
+
+class Gender(models.Model):
+    id=models.IntegerField(max_length=11)
+    gender=models.CharField(choices=GENDER_CHOICES, default='Male', max_length=11)
+    gender_person=models.CharField(max_length=30)
 
 
