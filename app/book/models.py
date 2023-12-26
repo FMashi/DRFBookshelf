@@ -3,7 +3,6 @@ from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.models import AbstractUser
 
 
-# Author model
 class Author(models.Model):
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
@@ -81,5 +80,4 @@ class EBook(models.Model):
 class Copy(models.Model):
     book = models.ForeignKey(Book, on_delete=models.CASCADE)
     status = models.CharField(max_length=20)
-
 
