@@ -60,9 +60,9 @@ class Profile(models.Model):
     father_name = models.CharField(max_length=50)
     
     contact_no = models.CharField(max_length=14)
-    identification_no = models.IntegerField()
-    registration_no = models.IntegerField()
-    page_no = models.IntegerField()
+    identification_no = models.IntegerField(null=True)
+    registration_no = models.IntegerField(null=True)
+    page_no = models.IntegerField(null=True)
     original_address = models.CharField(max_length=50)
     current_address = models.CharField(max_length=50)
 
