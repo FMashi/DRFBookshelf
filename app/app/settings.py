@@ -42,8 +42,9 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'authentication',
     'book',
+    'news',
 ]
-
+AUTH_USER_MODEL = 'authentication.CustomUser'
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
