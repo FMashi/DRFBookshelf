@@ -4,6 +4,7 @@ from django.conf import settings
 from django.dispatch import receiver
 from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.models import AbstractUser
+from book.models import Faculty, Copy
 
 
 GENDER = [
@@ -25,11 +26,33 @@ def create_user_profile(sender, instance, created, **kwargs):
 @receiver(post_save, sender=CustomUser)
 def save_user_profile(sender, instance, **kwargs):
     instance.Profile.save()
-    
-class Profile(models.Model): 
-    # faculty = models.ForeignKey(Faculty, on_delete=models.CASCADE) 
-    # semester = models.ForeignKey(Semester, on_delete=models.CASCADE) 
+   
+class Cities(models.Model):
+    city = models.CharField(max_length=80)
+    city_person = models.CharField(max_length=80)
+
+
+class Semesters(models.Model):
+    semester = models.CharField(max_length=30)
+    semester_person=models.CharField(max_length=30)
+
+class Desposites(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)  
+    copy= models.ForeignKey(Copy, on_delete=models.CASCADE) 
+    issue_date=models.DateField(auto_now_add=True)
+    due_date=models.DateField()
+    
+    def __str__(self):
+        return f"{self.user} - {self.copy} - {self.issue_date}"
+
+    class Meta:
+        verbose_name = "Deposit"
+        verbose_name_plural = "Deposits"
+     
+class Profile(models.Model): 
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)  
+    faculty = models.ForeignKey(Faculty, on_delete=models.CASCADE) 
+    semester = models.ForeignKey(Semesters, on_delete=models.CASCADE) 
     gender = models.CharField(max_length=1, choices=GENDER) 
     
     first_name = models.CharField(max_length=50)
