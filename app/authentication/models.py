@@ -42,8 +42,9 @@ class Desposites(models.Model):
      
 class Profile(models.Model): 
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)  
-    faculty = models.ForeignKey(Faculty, on_delete=models.CASCADE) 
-    semester = models.ForeignKey(Semesters, on_delete=models.CASCADE) 
+    faculty = models.ForeignKey(Faculty, on_delete=models.SET_NULL, null=True) 
+    semester = models.ForeignKey(Semesters, on_delete=models.SET_NULL, null=True) 
+    city = models.ForeignKey(Cities, on_delete=models.SET_NULL, null=True)
     gender = models.CharField(max_length=1, choices=GENDER) 
     
     first_name = models.CharField(max_length=50)
@@ -57,7 +58,6 @@ class Profile(models.Model):
     original_address = models.CharField(max_length=50)
     current_address = models.CharField(max_length=50)
 
-    is_active = models.BooleanField(default=True) 
     signature = models.CharField(max_length=255)
 
     def __str__(self):
