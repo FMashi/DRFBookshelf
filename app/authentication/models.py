@@ -8,14 +8,7 @@ from book.models import Faculty, Copy
 GENDER = [
     ('M', _('Male')),
     ('F', _('Female')),
-]
-
-class CustomUser(AbstractUser):
-   email = models.EmailField(unique=True)
-   
-   def __str__(self):
-       return self.username
-   
+]  
 
    
 class Cities(models.Model):
@@ -39,26 +32,32 @@ class Desposites(models.Model):
     class Meta:
         verbose_name = "Deposit"
         verbose_name_plural = "Deposits"
-     
+        
+class CustomUser(AbstractUser):
+    email = models.EmailField(unique=True)
+    faculty = models.ForeignKey(Faculty, on_delete=models.SET_NULL, null=True)
+    semester = models.ForeignKey(Semesters, on_delete=models.SET_NULL, null=True)
+    city = models.ForeignKey(Cities, on_delete=models.SET_NULL, null=True)
+    gender = models.CharField(max_length=1, choices=GENDER)
+
+    def __str__(self):
+        return self.username
+   
+  
 class Profile(models.Model): 
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)  
-    faculty = models.ForeignKey(Faculty, on_delete=models.SET_NULL, null=True) 
-    semester = models.ForeignKey(Semesters, on_delete=models.SET_NULL, null=True) 
-    city = models.ForeignKey(Cities, on_delete=models.SET_NULL, null=True)
-    gender = models.CharField(max_length=1, choices=GENDER) 
-    
-    first_name = models.CharField(max_length=50)
-    last_name = models.CharField(max_length=50)
-    father_name = models.CharField(max_length=50)
-    
-    contact_no = models.CharField(max_length=14)
-    identification_no = models.IntegerField(null=True)
-    registration_no = models.IntegerField(null=True)
-    page_no = models.IntegerField(null=True)
-    original_address = models.CharField(max_length=50)
-    current_address = models.CharField(max_length=50)
 
-    signature = models.CharField(max_length=255)
+    first_name = models.CharField(max_length=50, blank=True, null=True)
+    last_name = models.CharField(max_length=50, blank=True, null=True)
+    father_name = models.CharField(max_length=50, blank=True, null=True)
+    
+    contact_no = models.CharField(max_length=14, blank=True, null=True)
+    identification_no = models.IntegerField(blank=True, null=True)
+    registration_no = models.IntegerField(blank=True, null=True)
+    page_no = models.IntegerField(blank=True, null=True)
+    original_address = models.CharField(max_length=50, blank=True, null=True)
+    current_address = models.CharField(max_length=50, blank=True, null=True)
+    signature = models.CharField(max_length=255, blank=True, null=True)
 
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
