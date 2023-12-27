@@ -15,24 +15,41 @@ class Cities(models.Model):
     city = models.CharField(max_length=80)
     city_person = models.CharField(max_length=80)
 
+    def __str__(self):
+        return f"{self.city} - {self.city_person} "
+
 
 class Semesters(models.Model):
     semester = models.CharField(max_length=30)
     semester_person=models.CharField(max_length=30)
+    def __str__(self):
+        return f"{self.semester} - {self.semester_person} "
 
 class Desposites(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)  
     copy= models.ForeignKey(Copy, on_delete=models.CASCADE) 
     issue_date=models.DateField(auto_now_add=True)
     due_date=models.DateField()
-    
     def __str__(self):
         return f"{self.user} - {self.copy} - {self.issue_date}"
 
     class Meta:
         verbose_name = "Deposit"
         verbose_name_plural = "Deposits"
-        
+
+class Libraries(models.Model):
+    faculty = models.ForeignKey(Faculty, on_delete=models.SET_NULL, null=True)
+    content=models.TextField()
+    content_persian=models.TextField()
+    privacy=models.TextField()
+    privacy_persian=models.TextField()
+    services=models.TextField()
+    services_persian=models.TextField()
+    email=models.CharField(max_length=250)
+    def __str__(self):
+        return f"{self.faculty} - {self.services} - {self.email}"
+
+
 class CustomUser(AbstractUser):
     email = models.EmailField(unique=True)
     faculty = models.ForeignKey(Faculty, on_delete=models.SET_NULL, null=True)

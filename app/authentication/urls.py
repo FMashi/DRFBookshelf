@@ -9,7 +9,8 @@ from .views import (
     CitiesViewSet,
     SemestersViewSet,
     DespositesViewSet,
-    ProfileViewSet
+    ProfileViewSet,
+    LibrariesViewSet
     )
 
 from rest_framework.routers import DefaultRouter
@@ -19,6 +20,7 @@ router.register(r'Cities', CitiesViewSet)
 router.register(r'Semesters', SemestersViewSet)
 router.register(r'Desposites', DespositesViewSet)
 router.register(r'Profile', ProfileViewSet)
+router.register(r'Libraries', LibrariesViewSet)
 
 
 urlpatterns = [
