@@ -13,10 +13,6 @@ class UserSerializer(serializers.ModelSerializer):
        user = CustomUser(
            username=validated_data['username'],
            email=validated_data['email'],
-           faculty=validated_data.get('faculty'),
-            semester=validated_data.get('semester'),
-            city=validated_data.get('city'),
-            gender=validated_data.get('gender')
        )
        user.set_password(validated_data['password'])
        user.save()
