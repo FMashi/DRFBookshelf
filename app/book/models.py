@@ -80,4 +80,6 @@ class EBook(models.Model):
 class Copy(models.Model):
     book = models.ForeignKey(Book, on_delete=models.CASCADE)
     status = models.CharField(max_length=20)
+    
+
 
