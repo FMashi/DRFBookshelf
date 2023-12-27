@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path,include
 from .views import (
     user_list, 
     user_details,
@@ -6,9 +6,19 @@ from .views import (
     user_login,
     user_logout,
     change_password,
+    CitiesViewSet,
+    SemestersViewSet,
+    DespositesViewSet,
+    ProfileViewSet
     )
 
+from rest_framework.routers import DefaultRouter
 
+router = DefaultRouter()
+router.register(r'Cities', CitiesViewSet)
+router.register(r'Semesters', SemestersViewSet)
+router.register(r'Desposites', DespositesViewSet)
+router.register(r'Profile', ProfileViewSet)
 
 
 urlpatterns = [
@@ -18,4 +28,5 @@ urlpatterns = [
     path('login/', user_login, name='user_login'),
     path('logout/', user_logout, name='logout'),
     path('change_password/', change_password, name='change_password'),
+    path('', include(router.urls)),
 ]

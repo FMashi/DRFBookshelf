@@ -6,8 +6,10 @@ from rest_framework.decorators import api_view, permission_classes
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.authtoken.models import Token
-from .models import CustomUser
-from .serializers import UserSerializer
+from .models import CustomUser,Cities,Semesters,Desposites,Profile
+from .serializers import UserSerializer,CitiesSerializer,SemestersSerializer,DespositesSerializer,ProfileSerializer
+from rest_framework import viewsets
+
 
 @api_view(['GET'])
 def user_list(request):
@@ -106,3 +108,29 @@ def user_logout(request):
             return Response({'message': 'Successfully logged out.'}, status=status.HTTP_200_OK)
         except Exception as e:
             return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+
+
+class CitiesViewSet(viewsets.ModelViewSet):
+    queryset = Cities.objects.all()
+    serializer_class = CitiesSerializer
+
+class SemestersViewSet(viewsets.ModelViewSet):
+    queryset = Semesters.objects.all()
+    serializer_class = SemestersSerializer
+
+class DespositesViewSet(viewsets.ModelViewSet):
+    queryset = Desposites.objects.all()
+    serializer_class = DespositesSerializer
+
+
+class ProfileViewSet(viewsets.ModelViewSet):
+    queryset = Profile.objects.all()
+    serializer_class = ProfileSerializer
+
+
+
+
+
+
+
