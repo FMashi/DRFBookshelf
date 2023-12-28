@@ -9,6 +9,10 @@ class Author(models.Model):
 
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
+    
+    class Meta:
+        verbose_name = _("Author")
+        verbose_name_plural = _("Authors")
 
 
 # Publisher model
@@ -18,6 +22,10 @@ class Publisher(models.Model):
 
     def __str__(self):
         return self.name
+    
+    class Meta:
+        verbose_name = _("Publisher")
+        verbose_name_plural = _("Publishers")
 
 
 # Faculty model
@@ -27,6 +35,10 @@ class Faculty(models.Model):
     
     def __str__(self):
         return self.faculty_name
+    
+    class Meta:
+        verbose_name = _("Faculty")
+        verbose_name_plural = _("Faculties")
 
 class Libraries(models.Model):
     faculty = models.ForeignKey(Faculty, on_delete=models.SET_NULL, null=True)
@@ -38,8 +50,13 @@ class Libraries(models.Model):
     services_persian=models.TextField()
     email=models.CharField(max_length=250)
     
+    
     def __str__(self):
         return f"{self.faculty} - {self.services} - {self.email}"
+    
+    class Meta:
+        verbose_name = _("Library")
+        verbose_name_plural = _("Libraries")
 
 # Language model
 class Language(models.Model):
@@ -47,6 +64,10 @@ class Language(models.Model):
 
     def __str__(self):
         return self.name
+    
+    class Meta:
+        verbose_name = _("Language")
+        verbose_name_plural = _("Languages")
 
 
 class Category(models.Model):
@@ -55,6 +76,10 @@ class Category(models.Model):
 
     def __str__(self):
         return self.name
+    class Meta:
+        verbose_name = _("Category")
+        verbose_name_plural = _("Categories")
+
 
 
 class Section(models.Model):
@@ -64,6 +89,10 @@ class Section(models.Model):
 
     def __str__(self):
         return self.section
+    
+    class Meta:
+        verbose_name = _("Section")
+        verbose_name_plural = _("Sections")
 
 
 # Book model
@@ -83,18 +112,30 @@ class Book(models.Model):
 
     def __str__(self):
         return self.title
+    
+    class Meta:
+        verbose_name = _("Book")
+        verbose_name_plural = _("Books")
 
 
 # EBook model (inherits from Book)
 class EBook(models.Model):
     book = models.OneToOneField(Book, on_delete=models.CASCADE)
     extension = models.CharField(max_length=30)
+    
+    class Meta:
+        verbose_name = _("EBook")
+        verbose_name_plural = _("EBooks")
 
 
 # Copy model
 class Copy(models.Model):
     book = models.ForeignKey(Book, on_delete=models.CASCADE)
     status = models.CharField(max_length=20)
+    
+    class Meta:
+        verbose_name = _("Copy")
+        verbose_name_plural = _("Copies")
     
 
 
