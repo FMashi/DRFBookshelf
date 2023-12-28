@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -133,3 +135,105 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+JAZZMIN_SETTINGS = {
+    "site_title": "Bookshelf Admin",
+    "site_header": "Bookshelf",
+    "site_brand": "Bookshelf",
+    "site_logo_classes": "img-circle",
+    "welcome_sign": "Welcome to the Bookshelf",
+    "copyright": "Bookshelf. Developed by Group 3 during the Tuwaiq Academy Final Project Course.",
+    "user_avatar": None,
+    "login_logo": None,
+    "login_logo_dark": None,
+    "site_icon": None,
+    "user_avatar": None,
+    "search_model": ["authentication.CustomUser","book.Book"],
+
+    
+    
+    "topmenu_links": [
+
+        {"name": "Dashboard", "url": "/admin", "permissions": ["auth.view_user"]},
+        {"name": "Support", "url": "https://github.com/FMashi/DRFBookshelf", "new_window": True},
+        {"model": "auth.User"},
+        {"app": "book"},
+        {"app": "authentication"},
+    ],
+    "usermenu_links": [
+        {"name": "Support", "url": "https://github.com/FMashi/DRFBookshelf", "new_window": True},
+        {"model": "auth.user"},
+        {"model": "auth.Group"}
+    ],
+
+
+    "show_sidebar": True,
+    "navigation_expanded": True,
+    "hide_apps": [],
+    "hide_models": ["auth.group","auth.user"],
+
+    "order_with_respect_to": [
+        "auth",
+        "book",
+        "authentication",
+        "news",
+        
+        "authentication.Cities",
+        "authentication.Semesters",
+        "authentication.Desposites",
+        "authentication.CustomUser",
+        "authentication.Profile",
+    
+        "book.Author",
+        "book.Publisher",
+        "book.Faculty",
+        "book.Libraries",
+        "book.Language",
+        "book.Category",
+        "book.Section",
+        "book.Book",
+        "book.EBook",
+        "book.Copy",
+        "book.model",
+        ],
+    
+    "icons": {
+        "auth": "fas fa-users-cog",
+        "auth.user": "fas fa-user",
+        "auth.Group": "fas fa-users",
+        "authtoken.tokenproxy": "fas fa-key",
+        "authentication.Cities": "fas fa-city",
+        "authentication.Semesters": "fas fa-calendar-alt",
+        "authentication.Desposites": "fas fa-piggy-bank",
+        "authentication.CustomUser": "fas fa-user-cog",
+        "authentication.Profile": "fas fa-id-card",
+        "book.Author": "fas fa-pen",  
+        "book.Publisher": "fas fa-building",  
+        "book.Faculty": "fas fa-university", 
+        "book.Libraries": "fas fa-book",  
+        "book.Language": "fas fa-language",
+        "book.Category": "fas fa-bookmark",
+        "book.Section": "fas fa-layer-group",
+        "book.Book": "fas fa-book",
+        "book.EBook": "fas fa-file-alt",
+        "book.Copy": "fas fa-copy",
+        "book.model": "fas fa-cogs",
+        "news.News": "fas fa-newspaper"
+    },
+    "default_icon_parents": "fas fa-chevron-circle-right",
+    "default_icon_children": "fas fa-circle",
+
+    "use_google_fonts_cdn": True,
+}
+
+JAZZMIN_UI_TWEAKS = {
+    "theme": "Sketchy",
+    "button_classes": {
+        "primary": "btn-primary",
+        "secondary": "btn-secondary",
+        "info": "btn-info",
+        "warning": "btn-warning",
+        "danger": "btn-danger",
+        "success": "btn-success",
+},
+}
