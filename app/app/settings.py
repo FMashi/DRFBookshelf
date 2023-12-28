@@ -226,14 +226,4 @@ JAZZMIN_SETTINGS = {
     "use_google_fonts_cdn": True,
 }
 
-JAZZMIN_UI_TWEAKS = {
-    "theme": "Sketchy",
-    "button_classes": {
-        "primary": "btn-primary",
-        "secondary": "btn-secondary",
-        "info": "btn-info",
-        "warning": "btn-warning",
-        "danger": "btn-danger",
-        "success": "btn-success",
-},
-}
+
