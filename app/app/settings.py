@@ -142,7 +142,7 @@ JAZZMIN_SETTINGS = {
     "site_brand": "Bookshelf",
     "site_logo_classes": "img-circle",
     "welcome_sign": "Welcome to the Bookshelf",
-    "copyright": "Bookshelf. Developed by Group 3 during the Tuwaiq Academy Final Project Course.",
+    "copyright": "Bookshelf. Developed by Group 3 during the Tuwaiq Academy Final Project",
     "user_avatar": None,
     "login_logo": None,
     "login_logo_dark": None,
