@@ -6,8 +6,8 @@ from rest_framework.decorators import api_view, permission_classes
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.authtoken.models import Token
-from .models import CustomUser,Cities,Semesters,Desposites,Profile
-from .serializers import UserSerializer,CitiesSerializer,SemestersSerializer,DespositesSerializer,ProfileSerializer
+from .models import CustomUser,Cities,Semesters,Desposites,Profile,Libraries
+from .serializers import UserSerializer,CitiesSerializer,SemestersSerializer,DespositesSerializer,ProfileSerializer,LibrariesSerializer
 from rest_framework import viewsets
 
 
@@ -127,6 +127,11 @@ class DespositesViewSet(viewsets.ModelViewSet):
 class ProfileViewSet(viewsets.ModelViewSet):
     queryset = Profile.objects.all()
     serializer_class = ProfileSerializer
+
+class LibrariesViewSet(viewsets.ModelViewSet):
+    queryset = Libraries.objects.all()
+    serializer_class = LibrariesSerializer
+
 
 
 
