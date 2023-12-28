@@ -10,7 +10,6 @@ from .views import (
     SemestersViewSet,
     DespositesViewSet,
     ProfileViewSet,
-    LibrariesViewSet
     )
 
 from rest_framework.routers import DefaultRouter
@@ -20,15 +19,15 @@ router.register(r'Cities', CitiesViewSet)
 router.register(r'Semesters', SemestersViewSet)
 router.register(r'Desposites', DespositesViewSet)
 router.register(r'Profile', ProfileViewSet)
-router.register(r'Libraries', LibrariesViewSet)
+
 
 
 urlpatterns = [
+    path('', include(router.urls)),
     path('users/', user_list, name='user_list'),
     path('users/<int:pk>/', user_details, name='user_details'),
     path('register/', register_user, name='register_user'),
     path('login/', user_login, name='user_login'),
     path('logout/', user_logout, name='logout'),
     path('change_password/', change_password, name='change_password'),
-    path('', include(router.urls)),
 ]
