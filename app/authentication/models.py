@@ -37,19 +37,6 @@ class Desposites(models.Model):
         verbose_name = "Deposit"
         verbose_name_plural = "Deposits"
 
-class Libraries(models.Model):
-    faculty = models.ForeignKey(Faculty, on_delete=models.SET_NULL, null=True)
-    content=models.TextField()
-    content_persian=models.TextField()
-    privacy=models.TextField()
-    privacy_persian=models.TextField()
-    services=models.TextField()
-    services_persian=models.TextField()
-    email=models.CharField(max_length=250)
-    def __str__(self):
-        return f"{self.faculty} - {self.services} - {self.email}"
-
-
 class CustomUser(AbstractUser):
     email = models.EmailField(unique=True)
     faculty = models.ForeignKey(Faculty, on_delete=models.SET_NULL, null=True)
