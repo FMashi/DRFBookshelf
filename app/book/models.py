@@ -24,6 +24,9 @@ class Publisher(models.Model):
 class Faculty(models.Model):
     faculty_name = models.CharField(max_length=50)
     person = models.CharField(max_length=50)
+    
+    def __str__(self):
+        return self.faculty_name
 
 class Libraries(models.Model):
     faculty = models.ForeignKey(Faculty, on_delete=models.SET_NULL, null=True)
