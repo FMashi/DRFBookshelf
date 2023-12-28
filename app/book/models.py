@@ -25,6 +25,18 @@ class Faculty(models.Model):
     faculty_name = models.CharField(max_length=50)
     person = models.CharField(max_length=50)
 
+class Libraries(models.Model):
+    faculty = models.ForeignKey(Faculty, on_delete=models.SET_NULL, null=True)
+    content=models.TextField()
+    content_persian=models.TextField()
+    privacy=models.TextField()
+    privacy_persian=models.TextField()
+    services=models.TextField()
+    services_persian=models.TextField()
+    email=models.CharField(max_length=250)
+    
+    def __str__(self):
+        return f"{self.faculty} - {self.services} - {self.email}"
 
 # Language model
 class Language(models.Model):
