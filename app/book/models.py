@@ -123,6 +123,10 @@ class EBook(models.Model):
     book = models.OneToOneField(Book, on_delete=models.CASCADE)
     extension = models.CharField(max_length=30)
     
+    def __str__(self):
+        return self.book.title
+    
+    
     class Meta:
         verbose_name = _("EBook")
         verbose_name_plural = _("EBooks")
@@ -133,9 +137,13 @@ class Copy(models.Model):
     book = models.ForeignKey(Book, on_delete=models.CASCADE)
     status = models.CharField(max_length=20)
     
+    def __str__(self):
+        return self.book.title
+    
     class Meta:
         verbose_name = _("Copy")
         verbose_name_plural = _("Copies")
+    
     
 
 
