@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from rest_framework.exceptions import ValidationError
-from .models import CustomUser,Cities,Semesters,Desposites,Profile,Libraries
+from .models import CustomUser,Cities,Semesters,Desposites,Profile
 
 class UserSerializer(serializers.ModelSerializer):
    class Meta:
@@ -75,16 +75,5 @@ class ProfileSerializer(serializers.ModelSerializer):
             raise ValidationError(f"Unknown field(s): {', '.join(unknown)}")
         return data
 
-class LibrariesSerializer(serializers.ModelSerializer):
-    class Meta:
-        model=Libraries
-        fields=['faculty','content','content_persian','privacy','privacy_persian','services',
-                'services_persian','email']
-
-    def validate(self, data):
-        unknown = set(data) - set(self.fields)
-        if unknown:
-            raise ValidationError(f"Unknown field(s): {', '.join(unknown)}")
-        return data
 
 
