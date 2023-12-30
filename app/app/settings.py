@@ -28,10 +28,9 @@ SECRET_KEY = 'django-insecure-92p3roix#can--*vpx)%a036)54+&=mh9u5pkz%u!g)pd@53v$
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
+AUTH_USER_MODEL = 'authentication.CustomUser'
 
 # Application definition
-
 INSTALLED_APPS = [
     'jazzmin',
     'django.contrib.admin',
@@ -46,7 +45,7 @@ INSTALLED_APPS = [
     'book',
     'news',
 ]
-AUTH_USER_MODEL = 'authentication.CustomUser'
+
 REST_FRAMEWORK = {
    'DEFAULT_AUTHENTICATION_CLASSES': [
        'rest_framework.authentication.TokenAuthentication',

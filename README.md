@@ -76,6 +76,8 @@ Welcome to DRFBookshelf, a sophisticated Library Management System developed usi
 |   |-- admin.py
 |   |-- apps.py
 |   |-- models.py
+|   |-- serializers.py
+|   |-- signals.py
 |   |-- tests.py
 |   `-- views.py
 |-- 📁 book/
@@ -85,6 +87,17 @@ Welcome to DRFBookshelf, a sophisticated Library Management System developed usi
 |   |-- admin.py
 |   |-- apps.py
 |   |-- models.py
+|   |-- serializers.py
+|   |-- tests.py
+|   `-- views.py
+-- 📁 news/
+|   |-- 📁 migrations/
+|   |   `-- ...
+|   |-- __init__.py
+|   |-- admin.py
+|   |-- apps.py
+|   |-- models.py
+|   |-- serializers.py
 |   |-- tests.py
 |   `-- views.py
 |-- manage.py
