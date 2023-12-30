@@ -1,8 +1,18 @@
 # 📚 DRFBookshelf - Library Management System
 
-Welcome to DRFBookshelf, a sophisticated Library Management System developed using the Django REST Framework (DRF). This project harnesses the power of DRF to create a dynamic and efficient Web API for seamless library resource management. Tailored to the needs of both library staff and users, DRFBookshelf provides a comprehensive administrative panel for professional library management.
+Bookshelf - a sophisticated Library Management System meticulously crafted using the Django REST Framework (DRF). Developed as the final project of the REST API using Python and Django program at **[Tuwaiq Academy](https://tuwaiq.edu.sa/)**, Bookshelf sets a new standard for elegance and efficiency in book management.
 
-## Project Overview 🎯
+## Key Features
+
+**🌟 [Jazzmin-Themed](https://django-jazzmin.readthedocs.io/) Admin Dashboard:** Elevate your administrative experience with a visually captivating and functionally rich dashboard.
+
+**🛡️ Secure User Authentication:** Seamlessly manage user profiles, encompassing cities, semesters, deposits, and a robust authentication system.
+
+**📚 Comprehensive Book Management:** Revolutionize how you organize and track your book inventory with features for authors, publishers, faculties, languages, and more.
+
+**📰 Timely News Updates:** Stay ahead of the curve with a dedicated news section for adding, editing, and displaying articles, ensuring your users are well-informed.
+
+**🚀 Django Rest Framework Integration:** Experience efficient API integration, enabling fluid data exchange and seamless communication.
 
 ### Prerequisites 📦
 
