@@ -87,6 +87,15 @@ Welcome to DRFBookshelf, a sophisticated Library Management System developed usi
 |   |-- models.py
 |   |-- tests.py
 |   `-- views.py
+-- 📁 news/
+|   |-- 📁 migrations/
+|   |   `-- ...
+|   |-- __init__.py
+|   |-- admin.py
+|   |-- apps.py
+|   |-- models.py
+|   |-- tests.py
+|   `-- views.py
 |-- manage.py
 
 ```
